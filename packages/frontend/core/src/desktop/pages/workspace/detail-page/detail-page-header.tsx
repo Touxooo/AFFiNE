@@ -1,4 +1,5 @@
 import {
+  Button,
   Divider,
   DragHandle,
   type InlineEditHandle,
@@ -13,6 +14,7 @@ import { PageHeaderMenuButton } from '@affine/core/blocksuite/block-suite-header
 import { DetailPageHeaderPresentButton } from '@affine/core/blocksuite/block-suite-header/present/detail-header-present-button';
 import { BlocksuiteHeaderTitle } from '@affine/core/blocksuite/block-suite-header/title';
 import { EditorModeSwitch } from '@affine/core/blocksuite/block-suite-mode-switch';
+import { useExportPage } from '@affine/core/components/hooks/affine/use-export-page';
 import { useRegisterCopyLinkCommands } from '@affine/core/components/hooks/affine/use-register-copy-link-commands';
 import { HeaderDivider } from '@affine/core/components/pure/header';
 import { DocService } from '@affine/core/modules/doc';
@@ -128,6 +130,8 @@ export function NormalPageHeader({ page, workspace }: PageHeaderProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerWidth, setContainerWidth] = useState(0);
 
+  const exportHandler = useExportPage();
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -173,6 +177,12 @@ export function NormalPageHeader({ page, workspace }: PageHeaderProps) {
           containerWidth={containerWidth}
         />
       </div>
+      <Button
+        onClick={() => exportHandler('markdown-with-subpages')}
+        title="Export to Markdown (with subpages)"
+      >
+        Export Markdown + Subpages
+      </Button>
 
       <div className={styles.spacer} />
 

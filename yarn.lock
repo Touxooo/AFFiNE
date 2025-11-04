@@ -448,6 +448,7 @@ __metadata:
     dayjs: "npm:^1.11.13"
     eventemitter2: "npm:^6.4.9"
     fake-indexeddb: "npm:^6.0.0"
+    fflate: "npm:^0.8.2"
     file-type: "npm:^21.0.0"
     filesize: "npm:^10.1.6"
     foxact: "npm:^0.2.43"
